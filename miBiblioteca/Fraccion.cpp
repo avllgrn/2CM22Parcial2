@@ -11,6 +11,7 @@ Fraccion::Fraccion(void){
 Fraccion::Fraccion(int numerador, int denominador){
     Fraccion::numerador = numerador;
     Fraccion::denominador = denominador;
+    Fraccion::verificaTuEstado();
     //cout<<"Objeto construido por Fraccion(int numerador, int denominador)"<<endl;
 }
 Fraccion::~Fraccion(void){
@@ -21,6 +22,7 @@ void Fraccion::pideleAlUsuarioTuEstado(void){
     cin>>this->numerador;
     cout<<"Dame mi denominador ";
     cin>>this->denominador;
+    this->verificaTuEstado();
 }
 void Fraccion::muestraTuEstado(void){
     cout<<this->numerador<<"/"
@@ -37,8 +39,18 @@ int Fraccion::dameTuAtributoDenominador(void){
 }
 void Fraccion::modificaTuAtributoDenominador(int denominador){
     this->denominador = denominador;
+    this->verificaTuEstado();
 }
-
+void Fraccion::verificaTuEstado(void){
+    if(this->denominador == 0){
+        this->numerador = 0;
+        this->denominador = 1;
+    }
+    if(this->denominador < 0){
+        this->numerador *= -1;
+        this->denominador *= -1;
+    }
+}
 
 //Funciones relacionadas con la clase
 

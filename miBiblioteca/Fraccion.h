@@ -10,6 +10,7 @@ class Fraccion{
 private:
     int numerador;
     int denominador;
+    void verificaTuEstado(void);
 public:
     Fraccion(void);
     Fraccion(int numerador, int denominador);
